@@ -12,7 +12,7 @@ class insta:
         driver.set_window_size(566,1080)
 
         # 웹 페이지 로드
-        url = 'http://localhost/main.php'  # 원하는 웹사이트 URL
+        url = 'http://localhost/main.php'  # 호스팅 URL
         driver.get(url)
 
         # 페이지가 완전히 로드되도록 잠시 대기
