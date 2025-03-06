@@ -1,8 +1,8 @@
 <?php 
 ini_set('display_errors', '0'); //보안을 위해 
 
-//GET으로 날짜의 정보 표시 형식 고르기 
-date_default_time-zone_set('Asia/Seoul');
+//GET으로 날짜의 정보 표시 형식 고르기
+date_default_timezone_set('Asia/Seoul');
 if (isset($_GET['date'])) {
     $date = DateTime::createFromFormat('Ymd', $_GET['date']);
     $outputDate = $date->format('Y년 m월 d일');
@@ -103,10 +103,10 @@ if (file_exists($fileName)) {
     <h1 class="date"><?php echo $message; ?></h1>
     <div id="meal-boxes">
         <div class="meal-box">중식
-            <div class="food"><?php echo $lunch['ddishNm'] ?: '오늘은 급식이 제공되지 않습니다.'; ?></div>
+            <div class="food"><?php echo $lunch['ddishNm'] ?: '급식 정보가 없습니다.'; ?></div>
         </div>
         <div class="meal-box">석식
-            <div class="food"><?php echo $dinner['ddishNm'] ?: '데이터 누락 - 안내문을 확인해주세요.'; ?></div>
+            <div class="food"><?php echo $dinner['ddishNm'] ?: '급식 정보가 없습니다.'; ?></div>
         </div>
     </div>
     <div id="quote-box">
