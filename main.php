@@ -1,7 +1,8 @@
 <?php 
 ini_set('display_errors', '0'); //보안을 위해 
 
-//GET으로 날짜의 정보 표시 형식 고르기
+//GET으로 날짜의 정보 표시 형식 고르기 
+date_default_time-zone_set('Asia/Seoul');
 if (isset($_GET['date'])) {
     $date = DateTime::createFromFormat('Ymd', $_GET['date']);
     $outputDate = $date->format('Y년 m월 d일');
