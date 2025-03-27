@@ -61,12 +61,13 @@ if (file_exists($fileName)) {
     <style>
         body {
             font-family: Arial, sans-serif;
+            font-size: 18px;
             text-align: center;
             background-color: #5eacd1;
             margin: 0;
             padding: 20px;
             padding-top: 140px;
-            width: 500px;
+            width: 510px;
             height: 1080px;
             overflow: hidden;
         }
@@ -84,7 +85,7 @@ if (file_exists($fileName)) {
             border: 2px solid #333;
             border-radius: 10px;
             padding: 20px;
-            width: 300px;
+            width: 350px;
             background-color: #fff;
             box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
         }
@@ -93,9 +94,10 @@ if (file_exists($fileName)) {
             color: #555;
         }
         #quote-box {
-            margin-top: 40px;
-            font-style: italic;
-            color: #777;
+            margin-top: 20px;
+            font-style: Arial;
+            color: #000000;
+            width: 700px;
         }
     </style>
 </head>
@@ -110,7 +112,7 @@ if (file_exists($fileName)) {
         </div>
     </div>
     <div id="quote-box">
-        <div class="message2say">"오늘도 화이팅!"</div>
+        <div class="message2say">전교학생회 봉사부 제공</div>
     </div>
 </body>
 </html>
