@@ -31,7 +31,7 @@ if (file_exists($fileName)) {
 } else {
     // API 요청 및 응답 받아오기
     $OpenAPIKEY = '나이스 API 키';
-    $ATPT_OFCDC_SC_CODE = '시도교육청코드드';
+    $ATPT_OFCDC_SC_CODE = '시도교육청코드';
     $SD_SCHUL_CODE = '행정표준코드';
     $apiUrl = 'https://open.neis.go.kr/hub/mealServiceDietInfo?ATPT_OFCDC_SC_CODE='.$ATPT_OFCDC_SC_CODE.'&SD_SCHUL_CODE='.$SD_SCHUL_CODE.'&KEY='.$OpenAPIKEY.'&MLSV_YMD=' . $SearchDate;
     $response = file_get_contents($apiUrl);
