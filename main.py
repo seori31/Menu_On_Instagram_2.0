@@ -33,5 +33,5 @@ class insta:
         
 run = insta() 
 run.web_screenshot() 
-# run.login_upload() 
+run.login_upload() 
 run.timecheck() 

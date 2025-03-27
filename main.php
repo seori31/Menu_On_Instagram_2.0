@@ -10,7 +10,7 @@ if (isset($_GET['date'])) {
     $message = $outputDate . " 급식";
 } else {
     $SearchDate = date("Ymd");
-    $message = "오늘은 " . date("m", time()) . "월 " . date("d", time()) . "일 입니다";
+    $message = date("Y", time()) . " / " . date("m", time()) . " / " . date("d", time());
 }
 
 // 캐싱 폴더 경로
@@ -30,8 +30,10 @@ if (file_exists($fileName)) {
     $dinner = $cachedData['dinner'];
 } else {
     // API 요청 및 응답 받아오기
-    $OpenAPIKEY = 'b2c27578723a428080d923b3d010a0c7';
-    $apiUrl = 'https://open.neis.go.kr/hub/mealServiceDietInfo?ATPT_OFCDC_SC_CODE=H10&SD_SCHUL_CODE=7480035&KEY='.$OpenAPIKEY.'&MLSV_YMD=' . $SearchDate;
+    $OpenAPIKEY = '나이스 API 키';
+    $ATPT_OFCDC_SC_CODE = '시도교육청코드드';
+    $SD_SCHUL_CODE = '행정표준코드';
+    $apiUrl = 'https://open.neis.go.kr/hub/mealServiceDietInfo?ATPT_OFCDC_SC_CODE='.$ATPT_OFCDC_SC_CODE.'&SD_SCHUL_CODE='.$SD_SCHUL_CODE.'&KEY='.$OpenAPIKEY.'&MLSV_YMD=' . $SearchDate;
     $response = file_get_contents($apiUrl);
 
     // XML을 SimpleXMLElement로 파싱
@@ -72,6 +74,7 @@ if (file_exists($fileName)) {
             overflow: hidden;
         }
         h1 {
+            font-size: 30pt;
             color: #333;
         }
         #meal-boxes {
@@ -80,6 +83,10 @@ if (file_exists($fileName)) {
             align-items: center;
             gap: 20px;
             margin-top: 20px;
+        }
+        .meal-box-head {
+            font-weight: bold; 
+            color: rgb(15, 161, 230); 
         }
         .meal-box {
             border: 2px solid #333;
@@ -94,16 +101,17 @@ if (file_exists($fileName)) {
             color: #555;
         }
         #quote-box {
-            margin-top: 20px;
+            margin-top: 10px;
             font-style: Arial;
+            font-size: 12pt;
             color: #000000;
-            width: 700px;
+            width: 660px;
         }
     </style>
 </head>
 <body>
     <h1 class="date"><?php echo $message; ?></h1>
-    <div id="meal-boxes">
+    <div id="meal-boxes" class="meal-box-head">
         <div class="meal-box">중식
             <div class="food"><?php echo $lunch['ddishNm'] ?: '급식 정보가 없습니다.'; ?></div>
         </div>
@@ -112,7 +120,7 @@ if (file_exists($fileName)) {
         </div>
     </div>
     <div id="quote-box">
-        <div class="message2say">전교학생회 봉사부 제공</div>
+        <div class="message2say">울산고등학교 학생회 봉사부 제공</div>
     </div>
 </body>
 </html>
